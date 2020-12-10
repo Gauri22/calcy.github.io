@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, intial-scale=1.0" />
+    <title>Student Grade Calcy form</title>
+    <link rel="stylesheet" href="calcu.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="calcy-form">
+            <div class="input-fields">
+                <input type="text" class="input" placeholder="WD" id="wd" />
+                <input type="text" class="input" placeholder="Computer" id="comp" />
+                <input type="text" class="input" placeholder="Physics" id="phy" />
+                <input type="text" class="input" placeholder="Math" id="math" />
+            </div>
+            <div class="msg"></div>
+            <p class="textw">
+                Student Grade <br /> calcy
+            </p>
+            <input type="button " name=" " value="Show Percentage " class="btn" onclick="calculator() " />
+            <div class="group-showdata">
+                <p style="font-size: 17px; color: black; font-weight: bold" id="showdata"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const calculator = () => {
+            let wd = Number(document.getElementById("wd").value);
+            let comp = Number(document.getElementById("comp").value);
+            let phy = Number(document.getElementById("phy").value);
+            let math = Number(document.getElementById("math").value);
+            let grades = "";
+
+            let total = wd + comp + phy + math;
+            alert(total);
+
+            let per = (total / 400) * 100;
+            alert(per);
+
+            if (per <= 100 && per >= 80) {
+                grades = "A";
+            } else if (per <= 79 && per >= 60) {
+                grades = "B";
+            } else if (per <= 59 && per >= 40) {
+                grades = "C";
+            } else {
+                grades = "F";
+            }
+            if (per >= 39.5) {
+                document.getElementById(
+                    "showdata"
+                ).innerHTML = `Out of 400 your total is ${total} and  percentage is ${per}%.  Your grade is ${grades}. You are Pass.`;
+            } else {
+                document.getElementById(
+                    "showdata"
+                ).innerHTML = `Out of 400 your total is ${total} and  percentage is ${per}%.   Your grade is ${grades}. You are Fail.`;
+            }
+        };
+    </script>
+</body>
+
+</html>
